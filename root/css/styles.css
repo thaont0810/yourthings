@@ -22,7 +22,10 @@ li {
   margin: auto; }
 
 header .bg {
-  width: 100%; }
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block; }
 
 main {
   background: #fff;
@@ -58,8 +61,8 @@ main {
   height: 60px;
   background: #2ebaee;
   border-radius: 50%;
-  position: absolute;
-  right: 40px;
+  position: fixed;
+  right: 100px;
   bottom: 40px;
   cursor: pointer; }
   .plus__span {
@@ -70,19 +73,37 @@ main {
     padding: 10px 0; }
 
 .overlay-modal {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
   display: none; }
-  .overlay-modal.show-overlay {
+  .overlay-modal.show-modal {
     display: block; }
 
 .modal {
-  background: #46529d; }
+  background: #46529d;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9; }
+  .modal__content {
+    padding: 50px 0; }
   .modal__header {
-    padding-bottom: 80px; }
+    padding-bottom: 80px;
+    position: relative; }
   .modal__title {
     text-align: center;
     color: #fff;
     font-weight: normal; }
+  .modal__back {
+    position: absolute;
+    cursor: pointer; }
   .modal .form__item {
     width: 100%;
     padding: 10px;
@@ -103,4 +124,7 @@ main {
       padding: 20px;
       color: #fff;
       font-weight: 600;
-      border-radius: 5px; }
+      border-radius: 5px;
+      letter-spacing: 1px;
+      cursor: pointer;
+      margin-top: 10px; }

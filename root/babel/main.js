@@ -20,10 +20,14 @@ let todo = [{
 
 let ul = document.getElementById('list');
 
-let innerList = '';
+function load() {
+  if (!localStorage.getItem('todos')) {
+    localStorage.setItem('todos', JSON.stringify(todo));
+  }
 
-for (let i = 0; i < todo.length; i++) {
-  innerList += `<li class="item">
+  let innerList = '';
+  for (let i = 0; i < todo.length; i++) {
+    innerList += `<li class="item">
                 <div class="item__illus">
                   <div class="item__type"> ${todo[i].type} </div>
                 </div>
@@ -33,17 +37,30 @@ for (let i = 0; i < todo.length; i++) {
                 </div>
               </li>`;
 
-  ul.innerHTML = innerList;
+    ul.innerHTML = innerList;
+  }
 }
 
 let plus = document.getElementById('plus');
+let modal = document.getElementById('overlay-modal');
+let back = document.getElementById('back');
 
 plus.addEventListener('click', function () {
-  let modal = document.getElementById('overlay-modal');
-  modal.classList.add("show-overlay");;
+  modal.classList.add("show-modal");
 });
 
+back.addEventListener('click', function () {
+  modal.classList.remove('show-modal')
+})
 
-// function addTask() {
 
-// }
+let input1 = document.getElementById('input1');
+let input2 = document.getElementById('input2');
+
+function addTask() {
+  if (input1.value && input2.value) {
+    todo.push()
+  }
+}
+
+load();

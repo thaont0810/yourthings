@@ -44,11 +44,11 @@
     </main>
   </div>
 
-  <div class="overlay-modal">
-    <div class="modal container" id="modal">
-      <div class="inner-container">
+  <div class="overlay-modal" id= 'overlay-modal'>
+    <div class="container modal">
+      <div class="inner-container modal__content">
         <div class="modal__header">
-          <div class="modal__back">back</div>
+          <div class="modal__back" id="back"><img class="modal__back__img" src="images/back.png" alt=""></div>
           <h2 class="modal__title">Add new thing</h2>
         </div>
         <form action="" class="form">
@@ -56,9 +56,9 @@
             <option value="business">Business</option>
             <option value="personal">Personal</option>
           </select>
-          <input class="form__item modal__input" type="text" placeholder="task">
-          <input class="form__item modal__input" type="text" placeholder="place">
-          <button class="form__item modal__btn" type="button">Add new thing</button>
+          <input id="input1" class="form__item modal__input" type="text" placeholder="task">
+          <input id="input2" class="form__item modal__input" type="text" placeholder="place">
+          <button class="form__item modal__btn" onclick="addTask()" type="button">Add your thing</button>
         </form>
       </div>
     </div>
