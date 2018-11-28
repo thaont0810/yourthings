@@ -5,5 +5,147 @@
 }
 
 body {
-  background:#b5c4da;
+  background: #b5c4da;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #adadad;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+.container {
+  width: 600px;
+  margin: auto;
+}
+
+.inner-container {
+  width: 500px;
+  margin: auto;
+}
+
+header {
+  .bg {
+    width: 100%;
+  }
+}
+
+main {
+  background: #fff;
+  position: relative;
+
+  .section {
+    &__title {
+      font-size: 20px;
+      text-transform: uppercase;
+      color: #707070;
+      padding-top: 20px;
+    }
+  }
+
+  .list {
+    .item {
+      display: flex;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid #adadad;
+
+      &__illus {
+        margin-right: 20px;
+        border: 1px solid #adadad;
+        border-radius: 50%;
+        padding: 10px;
+        width: 80px;
+        height: 80px;
+        color: #4395e2;
+      }
+
+      &__type {
+        text-align: center;
+        padding: 20px 0;
+      }
+
+      &__name {
+        color: #000;
+        text-transform: capitalize;
+        padding-bottom: 5px;
+
+      }
+    }
+  }
+}
+
+.plus {
+  width: 60px;
+  height: 60px;
+  background: #2ebaee;
+  border-radius: 50%;
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  cursor: pointer;
+
+  &__span {
+    text-align: center;
+    display: block;
+    color: #fff;
+    font-size: 40px;
+    padding: 10px 0;
+  }
+}
+
+.overlay-modal {
+  background: rgba(rgb(0, 0, 0), 0.5);
+  display: none;
+  &.show-overlay {
+    display: block;
+  }
+}
+
+.modal {
+  background: #46529d;
+
+  &__header {
+    padding-bottom: 80px;
+  }
+
+  &__title {
+    text-align: center;
+    color: #fff;
+    font-weight: normal;
+  }
+
+  .form {
+    &__item {
+      width: 100%;
+      padding: 10px;
+      background: none;
+      color: #fff;
+      border: none;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #5f69aa;
+      outline: none;
+      font-size: 16px;
+
+      &::placeholder {
+        color: #5f69aa;
+      }
+
+      &.modal__btn {
+        background: #2ebaee;
+        text-transform: uppercase;
+        border: none;
+        outline: none;
+        padding: 20px;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 5px;
+      }
+    }
+
+  }
+
+
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,62 @@
 
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-  <p>ddd</p>
+  <div class="container">
+    <header>
+      <img class="bg" src="images/bg1.jpg" alt="">
+      <div class="inner-container">
+        <!-- <h1 class="title">Your Things</h1> -->
+      </div>
+    </header>
+    <main>
+      <section class="section inner-container">
+        <h2 class="section__title">Inbox</h2>
+        <ul class="list" id="list">
+          <!-- <li class="item">
+              <div class="item__illus">
+                <div class="item__type">business</div>
+              </div>
+              <div class="item__content">
+                <h3 class="item__name">task1</h3>
+                <p class="item__place">place1</p>
+              </div>
+            </li> -->
+        </ul>
+      </section>
+
+      <section class="section inner-container">
+        <h2 class="section__title">Completed</h2>
+      </section>
+
+      <div class="plus" id="plus">
+        <span class="plus__span">+</span>
+      </div>
+    </main>
+  </div>
+
+  <div class="overlay-modal">
+    <div class="modal container" id="modal">
+      <div class="inner-container">
+        <div class="modal__header">
+          <div class="modal__back">back</div>
+          <h2 class="modal__title">Add new thing</h2>
+        </div>
+        <form action="" class="form">
+          <select class="form__item modal__select" name="" id="">
+            <option value="business">Business</option>
+            <option value="personal">Personal</option>
+          </select>
+          <input class="form__item modal__input" type="text" placeholder="task">
+          <input class="form__item modal__input" type="text" placeholder="place">
+          <button class="form__item modal__btn" type="button">Add new thing</button>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>
+
 </html>
