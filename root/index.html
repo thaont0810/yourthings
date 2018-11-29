@@ -23,18 +23,22 @@
         <h2 class="section__title">Inbox</h2>
         <ul class="list" id="list">
           <!-- <li class="item">
-              <div class="item__illus">
-                <div class="item__type">business</div>
-              </div>
-              <div class="item__content">
-                <h3 class="item__name">task1</h3>
-                <p class="item__place">place1</p>
-              </div>
-            </li> -->
+            <div class="item__illus">
+              <div class="item__type">business</div>
+            </div>
+            <div class="item__content">
+              <h3 class="item__name">task1</h3>
+              <p class="item__place">place1</p>
+            </div>
+            <div class="method">
+              <span class="method__edit" onclick="editTask()"><img class="method__img" src="images/edit.png" alt=""></span>
+              <span class="method__del" onclick="delTask()"><img class="method__img" src="images/del.png" alt=""></span>
+            </div>
+          </li> -->
         </ul>
       </section>
 
-      <section class="section inner-container">
+      <section class="section inner-container completed">
         <h2 class="section__title">Completed</h2>
       </section>
 
@@ -44,22 +48,35 @@
     </main>
   </div>
 
-  <div class="overlay-modal" id= 'overlay-modal'>
+  <div class="overlay-modal" id='overlay-modal'>
     <div class="container modal">
       <div class="inner-container modal__content">
         <div class="modal__header">
           <div class="modal__back" id="back"><img class="modal__back__img" src="images/back.png" alt=""></div>
           <h2 class="modal__title">Add new thing</h2>
+          <!-- <span id="success"></span> -->
         </div>
-        <form action="" class="form">
-          <select class="form__item modal__select" name="" id="">
+        <div class="form" id="form">
+          <select class="form__item modal__select" id="select-type">
             <option value="business">Business</option>
             <option value="personal">Personal</option>
           </select>
-          <input id="input1" class="form__item modal__input" type="text" placeholder="task">
-          <input id="input2" class="form__item modal__input" type="text" placeholder="place">
+          <div class="form__group">
+            <input id="task-name" oninput="validateName()" class="form__item modal__input" type="text" name="name" placeholder="task">
+            <div class="del-all" onclick="delName()">
+              <img src="images/del.png" alt="">
+            </div>
+            <span class="error" id ="error-name"></span>
+          </div>
+          <div class="form__group">
+            <input id="task-place" oninput="validatePlace()" class="form__item modal__input" type="text" name="place" placeholder="place">
+            <div class="del-all" onclick="delPlace()">
+              <img src="images/del.png" alt="">
+            </div>
+            <span class="error" id="error-place"></span>
+          </div>
           <button class="form__item modal__btn" onclick="addTask()" type="button">Add your thing</button>
-        </form>
+        </div>
       </div>
     </div>
   </div>
