@@ -19,7 +19,10 @@ let todo = [{
   type: 'personal',
   isDone: false
 }];
-let ul = document.getElementById('list');
+let ulInbox = document.getElementById('list1');
+let ulCompleted = document.getElementById('list2');
+let business = 0;
+let personal = 0;
 
 function load() {
   let data = localStorage.getItem('todo');
@@ -29,37 +32,64 @@ function load() {
   }
 
   todo = JSON.parse(data);
-  let innerList = '';
+  let innerListCompleted = '';
+  let innerListInbox = '';
 
   for (let i = 0; i < todo.length; i++) {
-    innerList += `<li class="item">
-                    <div class="item__illus">
-                      <div class="item__type"> ${todo[i].type} </div>
-                    </div>
-                    <div class="item__content">
-                      <h3 class="item__name"> ${todo[i].name} </h3>
-                      <p class="item__place"> ${todo[i].place} </p>
-                    </div>
-                    <div class="method">
-                      <span class="method__edit" onclick="editTask(${i})">
-                        <img src="images/edit.png" alt="">
-                      </span>
-                      <span class="method__del" onclick="delTask(${i})">
-                        <img src="images/del.png" alt="">
-                      </span>
-                    </div>
-                  </li>`;
-    ul.innerHTML = innerList;
+    if (todo[i].isDone) {
+      innerListCompleted += `<li class="item">
+                              <div class="item__illus">
+                                <div class="item__type"> ${todo[i].type} </div>
+                              </div>
+                              <div class="item__content">
+                                <h3 class="item__name"> ${todo[i].name} </h3>
+                                <p class="item__place"> ${todo[i].place} </p>
+                              </div>
+                              <div class="method">
+                                <span class="method__edit" onclick="editTask(${i})">
+                                  <img src="images/edit.png" alt="">
+                                </span>
+                                <span class="method__del" onclick="delTask(${i})">
+                                  <img src="images/del.png" alt="">
+                                </span>
+                              </div>
+                            </li>`;
+    } else {
+      innerListInbox += `<li class="item">
+                          <div class="item__illus">
+                            <div class="item__type"> ${todo[i].type} </div>
+                          </div>
+                          <div class="item__content">
+                            <h3 class="item__name"> ${todo[i].name} </h3>
+                            <p class="item__place"> ${todo[i].place} </p>
+                          </div>
+                          <div class="method">
+                            <span class="method__edit" onclick="editTask(${i})">
+                              <img src="images/edit.png" alt="">
+                            </span>
+                            <span class="method__del" onclick="delTask(${i})">
+                              <img src="images/del.png" alt="">
+                            </span>
+                          </div>
+                        </li>`;
+    }
+
+    if (todo[i].type === 'business') {
+      business += 1;
+    } else {
+      personal += 1;
+    }
   }
 
-  let business = todo.reduce(function (acc, item) {
-    return acc + (item.type === 'business');
-  }, 0);
-  console.log(business);
-  let personal = todo.reduce(function (acc, item) {
-    return acc + (item.type === 'personal');
-  }, 0);
-  console.log(personal);
+  ulInbox.innerHTML = innerListInbox;
+  ulCompleted.innerHTML = innerListCompleted; // let business = todo.reduce(function(acc, item) {
+  //   return acc + (item.type === 'business');
+  // }, 0);
+  // console.log(business) 
+  // let personal = todo.reduce(function(acc, item) {
+  //   return acc + (item.type === 'personal');
+  // }, 0);
+  // console.log(personal)
 }
 
 let plus = document.getElementById('plus');
