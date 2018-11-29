@@ -29,6 +29,7 @@ let ulCompleted = document.getElementById('list2');
 
 let business = 0;
 let personal = 0;
+let done = 0;
 
 function load() {
   let data = localStorage.getItem('todo');
@@ -83,13 +84,14 @@ function load() {
     } else {
       personal += 1;
     }
+
+    if (todo[i].isDone) {
+      done += 1;
+    }
   }
 
   ulInbox.innerHTML = innerListInbox;
   ulCompleted.innerHTML = innerListCompleted;
-
-
-
 
   // let business = todo.reduce(function(acc, item) {
   //   return acc + (item.type === 'business');
@@ -100,7 +102,22 @@ function load() {
   //   return acc + (item.type === 'personal');
   // }, 0);
   // console.log(personal)
+
+  let numPer = document.getElementById('count__per');
+  numPer.innerHTML = `<p> ${personal} personal</p>` ;
+
+  let numBus = document.getElementById('count__bus');
+  numBus.innerHTML = `<p> ${business} business</p>`;
+  
+  let numDone = document.getElementById('num-done');
+  numDone.innerHTML = `${done}`;
+
+  let donePercent = document.getElementById('count__done');
+  donePercent.innerHTML = `${done * 100/ (personal + business)} % done`;
+
 }
+
+
 
 
 let plus = document.getElementById('plus');

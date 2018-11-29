@@ -14,36 +14,45 @@
   <div class="container">
     <header>
       <img class="bg" src="images/bg1.jpg" alt="">
-      <div class="inner-container">
-        <!-- <h1 class="title">Your Things</h1> -->
+      <div class="inner-container header-content">
+        <h1 class="title">Your Things</h1>
+        <div class="count">
+          <ul class="count__list">
+            <li class="count__item" id="count__per"></li>
+            <li class="count__item" id="count__bus"></li>
+          </ul>
+          <span class="count__done" id="count__done"></span>
+        </div>
       </div>
     </header>
     <main>
-      <section class="section inner-container">
-        <h2 class="section__title">Inbox</h2>
-        <ul class="list" id="list1">
-          <!-- <li class="item">
-            <div class="item__illus">
-              <div class="item__type">business</div>
-            </div>
-            <div class="item__content">
-              <h3 class="item__name">task1</h3>
-              <p class="item__place">place1</p>
-            </div>
-            <div class="method">
-              <span class="method__edit" onclick="editTask()"><img class="method__img" src="images/edit.png" alt=""></span>
-              <span class="method__del" onclick="delTask()"><img class="method__img" src="images/del.png" alt=""></span>
-            </div>
-          </li> -->
-        </ul>
-      </section>
+      <div class="content">
+        <section class="section inner-container">
+          <h2 class="section__title">Inbox</h2>
+          <ul class="list" id="list1">
+            <!-- <li class="item">
+              <div class="item__illus">
+                <div class="item__type">business</div>
+              </div>
+              <div class="item__content">
+                <h3 class="item__name">task1</h3>
+                <p class="item__place">place1</p>
+              </div>
+              <div class="method">
+                <span class="method__edit" onclick="editTask()"><img class="method__img" src="images/edit.png" alt=""></span>
+                <span class="method__del" onclick="delTask()"><img class="method__img" src="images/del.png" alt=""></span>
+              </div>
+            </li> -->
+          </ul>
+        </section>
 
-      <section class="section inner-container completed">
-        <h2 class="section__title">Completed</h2>
-        <ul class="list" id="list2">
+        <section class="section inner-container completed">
+          <h2 class="section__title">Completed <span id="num-done"></span></span></h2>
+          <ul class="list" id="list2">
 
-        </ul>
-      </section>
+          </ul>
+        </section>
+      </div>
 
       <div class="plus" id="plus">
         <span class="plus__span">+</span>
@@ -65,14 +74,16 @@
             <option value="personal">Personal</option>
           </select>
           <div class="form__group">
-            <input id="task-name" oninput="validateName()" class="form__item modal__input" type="text" name="name" placeholder="task">
+            <input id="task-name" oninput="validateName()" class="form__item modal__input" type="text" name="name"
+              placeholder="task">
             <div class="del-all" onclick="delName()">
               <img src="images/del.png" alt="">
             </div>
-            <span class="error" id ="error-name"></span>
+            <span class="error" id="error-name"></span>
           </div>
           <div class="form__group">
-            <input id="task-place" oninput="validatePlace()" class="form__item modal__input" type="text" name="place" placeholder="place">
+            <input id="task-place" oninput="validatePlace()" class="form__item modal__input" type="text" name="place"
+              placeholder="place">
             <div class="del-all" onclick="delPlace()">
               <img src="images/del.png" alt="">
             </div>
