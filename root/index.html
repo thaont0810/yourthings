@@ -26,31 +26,52 @@
       </div>
     </header>
     <main>
-      <div class="content">
-        <section class="section inner-container">
-          <h2 class="section__title">Inbox</h2>
-          <ul class="list" id="list1">
-            <!-- <li class="item">
-              <div class="item__illus">
-                <div class="item__type">business</div>
-              </div>
-              <div class="item__content">
-                <h3 class="item__name">task1</h3>
-                <p class="item__place">place1</p>
-              </div>
-              <div class="method">
-                <span class="method__edit" onclick="editTask()"><img class="method__img" src="images/edit.png" alt=""></span>
-                <span class="method__del" onclick="delTask()"><img class="method__img" src="images/del.png" alt=""></span>
-              </div>
-            </li> -->
-          </ul>
+      <div class="content" id="content">
+        <section class="section inner-container inbox" id="inbox">
+          <h2 class="section__title inbox__title">Inbox
+            <!-- <span class="num-notdone"></span> -->
+          </h2>
+          <div class="section-container">
+            <ul class="list" id="list1">
+              <!-- <li class="item">
+                  <div class="item__illus">
+                    <div class="item__type">business</div>
+                  </div>
+                  <div class="item__content">
+                    <label class="item__name" onclick="turnCompleted()">
+                      <input type="checkbox" name="ssss" id="">task1
+                    </label>
+                    <p class="item__place">place1</p>
+                  </div>
+                  <div class="method">
+                    <span class="method__edit" onclick="editTask()">
+                      <img class="method__img" src="images/edit.png" alt="">
+                    </span>
+                    <span class="method__del" onclick="delTask()">
+                      <img class="method__img" src="images/del.png" alt="">
+                    </span>
+                  </div>
+                </li> -->
+            </ul>
+          </div>
+          <h2 class="section__title" id="completed__title" onclick="reverse()">Completed
+            <span class="num-done"></span>
+          </h2>
         </section>
 
-        <section class="section inner-container completed">
-          <h2 class="section__title">Completed <span id="num-done"></span></span></h2>
-          <ul class="list" id="list2">
+        <section class="section inner-container completed" id="completed">
+          <h2 class="section__title" id="completed__title">Completed
+            <!-- <span class="num-done"></span> -->
+          </h2>
+          <div class="section-container">
+            <ul class="list list2" id="list2">
 
-          </ul>
+            </ul>
+          </div>
+
+          <h2 class="section__title inbox__title" onclick="reverse()">Inbox
+            <span class="num-notdone"></span>
+          </h2>
         </section>
       </div>
 
@@ -64,7 +85,9 @@
     <div class="container modal">
       <div class="inner-container modal__content">
         <div class="modal__header">
-          <div class="modal__back" id="back"><img class="modal__back__img" src="images/back.png" alt=""></div>
+          <div class="modal__back" id="back">
+            <img class="modal__back__img" src="images/back.png" alt="">
+          </div>
           <h2 class="modal__title">Add new thing</h2>
           <!-- <span id="success"></span> -->
         </div>

@@ -16,16 +16,17 @@ let todo = [{
 }, {
   name: 'walk a dog',
   place: 'park',
-  type: 'personal',
+  type: 'business',
   isDone: false
 }];
 let ulInbox = document.getElementById('list1');
 let ulCompleted = document.getElementById('list2');
-let business = 0;
-let personal = 0;
-let done = 0;
 
 function load() {
+  let business = 0;
+  let personal = 0;
+  let done = 0;
+  let notDone = 0;
   let data = localStorage.getItem('todo');
 
   if (!data) {
@@ -43,7 +44,9 @@ function load() {
                                 <div class="item__type"> ${todo[i].type} </div>
                               </div>
                               <div class="item__content">
-                                <h3 class="item__name"> ${todo[i].name} </h3>
+                              <label class="item__name" onclick="turnCompleted( ${i})">
+                                <input type="checkbox" checked name="${todo[i].name}" id="">${todo[i].name}
+                              </label>
                                 <p class="item__place"> ${todo[i].place} </p>
                               </div>
                               <div class="method">
@@ -61,7 +64,9 @@ function load() {
                             <div class="item__type"> ${todo[i].type} </div>
                           </div>
                           <div class="item__content">
-                            <h3 class="item__name"> ${todo[i].name} </h3>
+                            <label class="item__name" onclick="turnCompleted( ${i})">
+                              <input type="checkbox" name="${todo[i].name}" id="">${todo[i].name}
+                            </label>
                             <p class="item__place"> ${todo[i].place} </p>
                           </div>
                           <div class="method">
@@ -83,27 +88,31 @@ function load() {
 
     if (todo[i].isDone) {
       done += 1;
+    } else {
+      notDone += 1;
     }
   }
 
   ulInbox.innerHTML = innerListInbox;
-  ulCompleted.innerHTML = innerListCompleted; // let business = todo.reduce(function(acc, item) {
-  //   return acc + (item.type === 'business');
-  // }, 0);
-  // console.log(business) 
-  // let personal = todo.reduce(function(acc, item) {
-  //   return acc + (item.type === 'personal');
-  // }, 0);
-  // console.log(personal)
-
+  ulCompleted.innerHTML = innerListCompleted;
   let numPer = document.getElementById('count__per');
   numPer.innerHTML = `<p> ${personal} personal</p>`;
   let numBus = document.getElementById('count__bus');
   numBus.innerHTML = `<p> ${business} business</p>`;
-  let numDone = document.getElementById('num-done');
-  numDone.innerHTML = `${done}`;
+  let numDoneCollection = document.getElementsByClassName('num-done');
+
+  for (let i = 0; i < numDoneCollection.length; i++) {
+    numDoneCollection[i].innerHTML = `${done}`;
+  }
+
+  let numNotDoneCollection = document.getElementsByClassName('num-notdone');
+
+  for (let i = 0; i < numNotDoneCollection.length; i++) {
+    numNotDoneCollection[i].innerHTML = `${notDone}`;
+  }
+
   let donePercent = document.getElementById('count__done');
-  donePercent.innerHTML = `${done * 100 / (personal + business)} % done`;
+  donePercent.innerHTML = `${(done * 100 / (personal + business)).toFixed(2)} % done`;
 }
 
 let plus = document.getElementById('plus');
@@ -183,5 +192,24 @@ function delTask(i) {
 //   type.value = editTask.type;
 // }
 
+
+function turnCompleted(i) {
+  if (todo[i].isDone === true) {
+    todo[i].isDone = false;
+  } else {
+    todo[i].isDone = true;
+  }
+
+  localStorage.setItem('todo', JSON.stringify(todo));
+  load();
+}
+
+let content = document.getElementById('content');
+let inboxSection = document.getElementById('inbox');
+let completedSection = document.getElementById('completed');
+
+function reverse() {
+  content.classList.toggle('active');
+}
 
 load();
